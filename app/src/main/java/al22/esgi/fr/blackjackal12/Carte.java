@@ -5,10 +5,27 @@ import java.util.HashMap;
 /**
  * Created by Rawinderjeet on 03/03/2016.
  */
+enum couleurs {PIQUE, TREFLE, CARREAU, COEUR}
+enum lettres{DEUX,TROIS,QUATRE,CINQ,SIX,SEPT,HUIT,NEUF,DIX,V,D,R,A}
+
 public class Carte implements Comparable<Carte>{
 
     public String lettre;
     public static HashMap<lettres, Integer> cartes = new HashMap<lettres,Integer>();
+    public int valeur;
+    public String couleur;
+    private boolean visible = true;
+    public Carte(String lettre, String couleur) {
+        this.lettre = lettre;
+        this.couleur = couleur;
+    }
+
+    public int getValeur() {
+        return cartes.get(this.lettre);
+    }
+    public void setValeur(int valeur) {
+        this.valeur = valeur;
+    }
     public void genererCarte(){
         cartes.put(lettres.DEUX,2);
         cartes.put(lettres.TROIS,3);
@@ -35,10 +52,6 @@ public class Carte implements Comparable<Carte>{
         return 1;
     }
 
-    private enum lettres{DEUX,TROIS,QUATRE,CINQ,SIX,SEPT,HUIT,NEUF,DIX,V,D,R,A}
-    public int valeur;
-    private enum couleurs {PIQUE, TREFLE, CARREAU, COEUR};
-    private boolean visible = true;
 
     public boolean isValid(){
         if(cartes.get(this.lettre) == this.valeur){
