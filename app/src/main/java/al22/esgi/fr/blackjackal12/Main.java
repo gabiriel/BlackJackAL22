@@ -9,5 +9,10 @@ public class Main {
     private List<Carte> listeCarte;
     private double mise;
 
-    public void ObtenirValeuDesCartes(){}
+    public void ObtenirValeurDesCartes(){
+        double total = 0.0;
+        for ( double valeur : listeCarte){
+
+        }
+    }
 }

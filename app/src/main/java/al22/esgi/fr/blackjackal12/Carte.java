@@ -8,6 +8,7 @@ public class Carte {
     private String lettre;
     private int valeur;
     private enum couleurs {PIQUE, TREFLE, CARREAU, COEUR};
+    private boolean visible = true;
 
     public String getLettre() {
         return lettre;
