@@ -6,8 +6,8 @@ import java.util.List;
  * Created by Rawinderjeet on 03/03/2016.
  */
 public class Main {
-    private List<Carte> listeCarte;
-    private double mise;
+    public List<Carte> listeCarte;
+    public int mise;
 
     public int ObtenirValeurDesCartes(){
         int total = 0;

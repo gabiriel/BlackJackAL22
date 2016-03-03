@@ -14,7 +14,7 @@ public class Carte implements Comparable<Carte>{
     public static HashMap<lettres, Integer> cartes = new HashMap<lettres,Integer>();
     public int valeur;
     public String couleur;
-    private boolean visible = true;
+    public boolean visible = true;
     public Carte(String lettre, String couleur) {
         this.lettre = lettre;
         this.couleur = couleur;

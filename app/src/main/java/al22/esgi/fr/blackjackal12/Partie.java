@@ -8,14 +8,16 @@ import java.util.Random;
  * Created by Rawinderjeet on 03/03/2016.
  */
 public class Partie {
+    public Graphisme g;
+    public PlateauDeJeu p;
     public List<Main> mains;
     public List<Carte> cartesPioche;
     public Main mainBanquier;
     public boolean action;
     public int tresorerieJoueur;
     public int miseIniJoueur;
-    public int miseTotJoueur;
     public int valeurCarte;
+    public int mainActuelle;
 
     public void GenererCartesPioche(){
         cartesPioche = new ArrayList<Carte>();
@@ -39,17 +41,46 @@ public class Partie {
     }
 
     public void InitialiserPartie(){
+
         GenererCartesPioche();
-        miseIniJoueur = 0;
-        miseTotJoueur = 0;
-        //PlateauDeJeu.reinitialiser();
-        mains.clear();
-        mainBanquier = new Main();
-        //Graphisme.Afficher();
+        EffacerPlateauDeJeu();
+        g.AfficherTous();
     }
 
     public void EffacerPlateauDeJeu(){
-
+        miseIniJoueur = 0;
+        p.ReinitialiserMise();
+        mains.clear();
+        mains.add(new Main());
+        mainBanquier = new Main();
     }
-
+    public boolean PossedeDesCartes(){
+        for(Main m : mains){
+            if(!m.listeCarte.isEmpty()){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int ObtenirValeurDesCartes(Main m){
+        return m.ObtenirValeurDesCartes();
+    }
+    public int ObtenirMiseTotaleDuJoueur(){
+        int total = 0;
+        for(Main m : mains){
+            total += m.mise;
+        }
+        return total;
+    }
+    public void DistribuerUneCarteAuJoueur(){
+        Main m = mains.get(mainActuelle);
+        m.listeCarte.add(ObtenirCarteDeLaPioche());
+    }
+    public void DistribuerUneCarteAuCroupier(boolean visible){
+        Main m = mains.get(mainActuelle);
+        Carte c = ObtenirCarteDeLaPioche();
+        c.visible = visible;
+        m.listeCarte.add(c);
+    }
+    public void UpdateTresorerie(){}
 }

@@ -2,7 +2,12 @@ package al22.esgi.fr.blackjackal12;
 
 public class Graphisme
 {
-
+    public void AfficherTous(){
+        AfficherCartesBanque();
+        AfficherCartesDuJoueur();
+        AfficherLesPoints();
+        AfficherMiseJoueur();
+    }
     public void AfficherUneCarteJoueur(int numCarte, Carte carte)
     {
 
@@ -25,6 +30,9 @@ public class Graphisme
 
     public void AfficherLesPoints()
     {
+
+    }
+    public void AfficherMiseJoueur(){
 
     }
 }
