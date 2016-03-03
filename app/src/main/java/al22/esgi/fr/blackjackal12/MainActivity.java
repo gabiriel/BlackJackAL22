@@ -12,6 +12,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    public void displayTuto(View view)
+    {
+        Intent intent = new Intent(this, TutoActivity.class);
+        startActivity(intent);
+    }
 
     public void playGame(View view)
     {
