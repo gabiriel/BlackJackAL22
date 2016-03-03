@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="@mipmap/Fond"
+    android:background="@mipmap/background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="al22.esgi.fr.blackjackal12.GameActivity">
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
@@ -27,5 +27,5 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="579dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView" />
+        android:layout_alignStart="@+id/imageView" />-->
 </RelativeLayout>

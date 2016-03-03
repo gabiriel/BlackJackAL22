@@ -18,7 +18,7 @@ public class GameActivity extends Activity {
         double tresorerie= app.getTresorerie();
         */
 
-        findViewById(R.id.imageView).setOnTouchListener(new MyTouchListener());
+        //findViewById(R.id.imageView).setOnTouchListener(new MyTouchListener());
     }
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {

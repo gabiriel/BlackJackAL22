@@ -1,6 +1,6 @@
 package al22.esgi.fr.blackjackal12;
 
-public class Partie
+public class Graphisme
 {
 
     public void AfficherUneCarteJoueur(int numCarte, Carte carte)
