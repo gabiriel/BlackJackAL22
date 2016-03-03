@@ -131,15 +131,18 @@ public class Partie {
         }
         return total;
     }
-    public void DistribuerUneCarteAuJoueur(){
+    public Carte DistribuerUneCarteAuJoueur(){
         Main m = mains.get(mainActuelle);
-        m.listeCarte.add(ObtenirCarteDeLaPioche());
+        Carte c = ObtenirCarteDeLaPioche();
+        m.listeCarte.add(c);
+        return c;
     }
-    public void DistribuerUneCarteAuCroupier(boolean visible){
+    public Carte DistribuerUneCarteAuCroupier(boolean visible){
         Main m = mains.get(mainActuelle);
         Carte c = ObtenirCarteDeLaPioche();
         c.visible = visible;
         m.listeCarte.add(c);
+        return c;
     }
     public void UpdateTresorerie(){}
 
