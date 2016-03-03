@@ -26,6 +26,7 @@ public class Partie {
     public int mainActuelle;
     public EtatPartie EtatCourant;
     public victoire Victoire = victoire.inconnu;
+    public Action ActionJoueur = new Action();
 
     public Partie() {
         graph = new Graphisme(this);
