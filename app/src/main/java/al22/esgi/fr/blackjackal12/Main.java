@@ -13,7 +13,7 @@ public class Main {
         int total = 0;
         int compteurAs = 0;
         for ( Carte c : listeCarte){
-            if(c.lettre == "A"){
+            if(c.lettre == lettres.A){
                 compteurAs++;
             }
             else{

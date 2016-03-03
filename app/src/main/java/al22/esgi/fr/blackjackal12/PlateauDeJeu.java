@@ -11,7 +11,7 @@ import java.util.ListIterator;
  * Created by Rawinderjeet on 03/03/2016.
  */
 public class PlateauDeJeu {
-    private int mises;
+    private int mises = 0;
 
     public PlateauDeJeu(){
         ReinitialiserMise();

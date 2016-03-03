@@ -8,9 +8,11 @@ import java.util.Random;
  * Created by Rawinderjeet on 03/03/2016.
  */
 public class Partie {
-    public Graphisme g;
-    public PlateauDeJeu p;
-    public List<Main> mains;
+    public Graphisme graph = new Graphisme();
+    public PlateauDeJeu plateau = new PlateauDeJeu();
+    public List<Main> mains = new ArrayList<Main>(){
+        {new Main();}
+    };
     public List<Carte> cartesPioche;
     public Main mainBanquier;
     public boolean action;
@@ -21,18 +23,34 @@ public class Partie {
 
     public void GenererCartesPioche(){
         cartesPioche = new ArrayList<Carte>();
+   //     cartesPioche.add(new Carte(lettres.A,couleurs.CARREAU));
+   //     cartesPioche.add(new Carte(lettres.A,couleurs.PIQUE));
         Carte c;
         for ( lettres lettre : lettres.values() ){
             for(couleurs couleur : couleurs.values()) {
-                c = new Carte(lettre.toString(), couleur.toString());
+                c = new Carte(lettre, couleur);
                 c.setValeur(c.getValeur());
                 cartesPioche.add(c);
             }
         }
     }
 
-    public void TesterCartesPioche(){
+    public boolean TesterCartesPioche(){
+        Boolean trouve;
 
+        for (Carte c1 : cartesPioche){
+            trouve = false;
+            for (Carte c2 : cartesPioche){
+                if (c1.compareTo(c2) == 0){
+                    if(trouve){
+                        return false;
+                    }
+                    trouve = true;
+                }
+            }
+        }
+   //     return cartesPioche.size()==52;
+        return true;
     }
 
     public Carte ObtenirCarteDeLaPioche(){
@@ -41,15 +59,14 @@ public class Partie {
     }
 
     public void InitialiserPartie(){
-
         GenererCartesPioche();
         EffacerPlateauDeJeu();
-        g.AfficherTous();
+        graph.AfficherTous();
     }
 
     public void EffacerPlateauDeJeu(){
         miseIniJoueur = 0;
-        p.ReinitialiserMise();
+        plateau.ReinitialiserMise();
         mains.clear();
         mains.add(new Main());
         mainBanquier = new Main();
