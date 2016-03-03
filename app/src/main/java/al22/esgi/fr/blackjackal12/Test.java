@@ -10,6 +10,6 @@ public class Test {
         Partie p = new Partie();
         p.InitialiserPartie();
         boolean b = p.TesterCartesPioche();
-        Log.v("", "resultat : " + b);
+        Log.v("TestCartesPioche", "resultat = " + b);
     }
 }
