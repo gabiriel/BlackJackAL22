@@ -8,17 +8,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="al22.esgi.fr.blackjackal12.MainActivity">
+    tools:context="al22.esgi.fr.blackjackal12.GameActivity">
 
     <TextView
-        android:text="Hello World!"
+        android:text="Hello on GameActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_play"
-        android:onClick="playGame" />
-
 </RelativeLayout>
