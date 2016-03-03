@@ -9,10 +9,25 @@ public class Main {
     private List<Carte> listeCarte;
     private double mise;
 
-    public void ObtenirValeurDesCartes(){
-        double total = 0.0;
-        for ( double valeur : listeCarte){
-
+    public int ObtenirValeurDesCartes(){
+        int total = 0;
+        int compteurAs = 0;
+        for ( Carte c : listeCarte){
+            if(c.lettre == "A"){
+                compteurAs++;
+            }
+            else{
+                total += c.valeur;
+            }
         }
+        if(compteurAs > 0){
+            if(compteurAs > 1 || total > 10){
+                total += compteurAs;
+            }
+            else {
+                total += 11;
+            }
+        }
+        return total;
     }
 }

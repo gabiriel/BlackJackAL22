@@ -7,5 +7,6 @@ import java.util.List;
  */
 public class Partie {
     private List<Main> mains;
-    private Main mainPioche;
+    private List<Carte> pioche;
+    private Main mainBanque;
 }
