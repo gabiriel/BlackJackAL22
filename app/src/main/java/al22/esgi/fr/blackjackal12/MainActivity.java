@@ -1,7 +1,9 @@
 package al22.esgi.fr.blackjackal12;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void button_start(View view)
+    public void playGame(View view)
     {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);

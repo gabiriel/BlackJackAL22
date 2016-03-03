@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BlackJackAL12</string>
     <string name="button_play">Jouer</string>
+    <string name="title_activity_display_message">Game</string>
 </resources>
