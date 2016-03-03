@@ -11,6 +11,7 @@ public class EtatJeuNormal extends EtatPartie {
         if(p == null) throw new NullPointerException("La Partie a modifier est nulle");
         p.EtatCourant = this;
         Afficher();
+        p.action = false;
     }
 
     @Override

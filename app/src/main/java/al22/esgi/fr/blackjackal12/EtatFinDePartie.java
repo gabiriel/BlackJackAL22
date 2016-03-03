@@ -11,7 +11,9 @@ public class EtatFinDePartie extends EtatPartie {
         if(p == null) throw new NullPointerException("La Partie a modifier est nulle");
         p.EtatCourant = this;
         Afficher();
-    }
+        p.action = false;
+        p.graph.AfficherResultat();
+}
 
     @Override
     public void Afficher() {

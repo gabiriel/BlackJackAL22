@@ -1,5 +1,7 @@
 package al22.esgi.fr.blackjackal12;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,8 +9,10 @@ import java.util.Random;
 /**
  * Created by Rawinderjeet on 03/03/2016.
  */
+enum victoire {inconnu,vainqueur, perdant,matchNul};
+
 public class Partie {
-    public Graphisme graph = new Graphisme();
+    public Graphisme graph;
     public PlateauDeJeu plateau = new PlateauDeJeu();
     public List<Main> mains = new ArrayList<Main>(){
         {new Main();}
@@ -20,6 +24,46 @@ public class Partie {
     public int miseIniJoueur;
     public int valeurCarte;
     public int mainActuelle;
+    public EtatPartie EtatCourant;
+    public victoire Victoire = victoire.inconnu;
+
+    public Partie() {
+        graph = new Graphisme(this);
+    }
+
+    public void PasserEnEtatAttenteDeMise()
+    {
+        if(EtatCourant == null || EtatCourant instanceof EtatFinDePartie)
+        {
+            EtatCourant = new EtatAttenteDeMise();
+            EtatCourant.ModifieEtat(this);
+        }
+        else Log.d("PasserEnAttenteDeMise","non autorisé");
+    }
+
+    public void PasserEnEtatJeuNormal()
+    {
+        if(EtatCourant instanceof EtatAttenteDeMise) {
+            EtatCourant = new EtatJeuNormal();
+            EtatCourant.ModifieEtat(this);
+        }
+        else Log.d("PasserEnEtatJeuNormal","non autorisé, non possible depuis cet état " + EtatCourant.getClass().toString());
+    }
+
+    public void PasserEnEtatFinPartie()
+    {
+        DeterminerVainqueur();
+        if(Victoire == victoire.inconnu){
+            Log.d("PasserEnEtatFinPartie","impossible car vainqueur inconnu");
+            return;
+        }
+        if(EtatCourant == null || EtatCourant instanceof EtatAttenteDeMise){
+            Log.d("PasserEnEtatFinPartie", "non autorisé depuis cet état");
+            return;
+        }
+        EtatCourant = new EtatFinDePartie();
+        EtatCourant.ModifieEtat(this);
+    }
 
     public void GenererCartesPioche(){
         cartesPioche = new ArrayList<Carte>();
@@ -49,8 +93,7 @@ public class Partie {
                 }
             }
         }
-   //     return cartesPioche.size()==52;
-        return true;
+        return cartesPioche.size()==52;
     }
 
     public Carte ObtenirCarteDeLaPioche(){
@@ -60,8 +103,7 @@ public class Partie {
 
     public void InitialiserPartie(){
         GenererCartesPioche();
-        EffacerPlateauDeJeu();
-        graph.AfficherTous();
+        PasserEnEtatAttenteDeMise();
     }
 
     public void EffacerPlateauDeJeu(){
@@ -100,4 +142,8 @@ public class Partie {
         m.listeCarte.add(c);
     }
     public void UpdateTresorerie(){}
+
+    public void DeterminerVainqueur() { // A DETERMINER !
+        Victoire = victoire.inconnu;
+    }
 }
