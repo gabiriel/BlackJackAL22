@@ -8,6 +8,7 @@ import android.view.View;
 
 public class GameActivity extends Activity {
 
+    Partie Jeu = new Partie(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Intent intent = getIntent();
@@ -19,6 +20,7 @@ public class GameActivity extends Activity {
         */
 
         //findViewById(R.id.imageView).setOnTouchListener(new MyTouchListener());
+        Jeu.InitialiserPartie();
     }
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {

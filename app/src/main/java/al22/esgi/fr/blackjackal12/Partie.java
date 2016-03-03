@@ -26,10 +26,13 @@ public class Partie {
     public int mainActuelle;
     public EtatPartie EtatCourant;
     public victoire Victoire = victoire.inconnu;
-    public Action ActionJoueur = new Action();
+    public Action ActionJoueur;
+    public GameActivity Activity;
 
-    public Partie() {
+    public Partie(GameActivity activity) {
         graph = new Graphisme(this);
+        Activity = activity;
+        ActionJoueur = new Action(this);
     }
 
     public void PasserEnEtatAttenteDeMise()
