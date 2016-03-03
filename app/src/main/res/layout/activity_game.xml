@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="@mipmap/background"
+    android:background="@mipmap/fond"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,4 +28,269 @@
         android:layout_marginBottom="579dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imageView" />-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:background="@mipmap/barrehaut"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:background="@mipmap/barrebas"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/imageButton2"
+        android:background="@mipmap/regles"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginLeft="10dip"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dip" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/btnTirer"
+        android:layout_marginBottom="50dp"
+        android:background="@mipmap/tirer"
+        android:layout_alignBottom="@+id/btnRester"
+        android:layout_alignStart="@+id/btnRester" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="$ 600"
+        android:id="@+id/lblTresorerie"
+        android:textColor="#ffc000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:layout_alignBottom="@+id/imageButton2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:id="@+id/btnRester"
+        android:background="@mipmap/rester"
+        android:layout_above="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Mise totale :"
+        android:id="@+id/lblTexteMise"
+        android:textColor="#ffc000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:layout_above="@+id/imageView"
+        android:layout_toStartOf="@+id/lblTresorerie"
+        android:layout_alignEnd="@+id/lblTresorerie" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="$ 600"
+        android:id="@+id/lblMise"
+        android:textColor="#ffc000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:layout_above="@+id/imageView"
+        android:layout_toEndOf="@+id/lblTresorerie" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartebanque1"
+        android:background="@mipmap/back"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignStart="@+id/imageButton2"
+        android:layout_marginStart="22dp" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartebanque2"
+        android:background="@mipmap/back"
+        android:layout_below="@+id/imageView3"
+        android:layout_toStartOf="@+id/lblTresorerie" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartebanque3"
+        android:background="@mipmap/back"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignStart="@+id/cartebanque2" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartebanque4"
+        android:background="@mipmap/back"
+        android:layout_marginStart="10dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_toEndOf="@+id/cartebanque1" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartebanque5"
+        android:background="@mipmap/back"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignStart="@+id/lblTresorerie"
+        android:layout_marginStart="14dp" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartejoueur1"
+        android:background="@mipmap/back"
+        android:layout_alignBottom="@+id/btnRester"
+        android:layout_toStartOf="@+id/cartebanque4" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartejoueur2"
+        android:background="@mipmap/back"
+        android:layout_alignTop="@+id/cartejoueur1"
+        android:layout_toStartOf="@+id/cartebanque5" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartejoueur3"
+        android:background="@mipmap/back"
+        android:layout_alignTop="@+id/cartejoueur1"
+        android:layout_alignStart="@+id/cartebanque3" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartejoueur4"
+        android:background="@mipmap/back"
+        android:layout_alignTop="@+id/cartejoueur2"
+        android:layout_alignStart="@+id/cartebanque4" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:id="@+id/cartejoueur5"
+        android:background="@mipmap/back"
+        android:layout_alignTop="@+id/cartejoueur3"
+        android:layout_alignStart="@+id/cartebanque5" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton1"
+        android:background="@mipmap/j1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton5"
+        android:background="@mipmap/j5"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/lblTexteMise" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton25"
+        android:background="@mipmap/j25"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/cartejoueur1" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton100"
+        android:background="@mipmap/j100"
+        android:layout_marginStart="0dp"
+        android:layout_alignTop="@+id/jeton25"
+        android:layout_toEndOf="@+id/cartejoueur3" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton500"
+        android:background="@mipmap/j500"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/lblMise" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/jeton1k"
+        android:background="@mipmap/j1k"
+        android:layout_marginStart="0dp"
+        android:layout_alignTop="@+id/jeton500"
+        android:layout_alignEnd="@+id/btnRester" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/lblValeurBanque"
+        android:textColor="#ffc000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_toStartOf="@+id/jeton1k" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/lblValeurJoueur"
+        android:textColor="#ffc000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:layout_alignTop="@+id/btnRester"
+        android:layout_alignStart="@+id/lblValeurBanque" />
+
+    <ImageView
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:id="@+id/imageView4"
+        android:background="@mipmap/joueur"
+        android:layout_above="@+id/cartejoueur1"
+        android:layout_alignStart="@+id/cartejoueur1" />
+
+    <ImageView
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:id="@+id/imageView5"
+        android:background="@mipmap/banque"
+        android:layout_below="@+id/cartebanque1"
+        android:layout_alignStart="@+id/cartebanque1" />
+
 </RelativeLayout>
