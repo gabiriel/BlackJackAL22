@@ -29,6 +29,11 @@ public class Partie {
     public Action ActionJoueur;
     public GameActivity Activity;
 
+    public Partie(){
+        graph = new Graphisme(this);
+        ActionJoueur = new Action(this);
+    }
+
     public Partie(GameActivity activity) {
         graph = new Graphisme(this);
         Activity = activity;
