@@ -103,6 +103,14 @@ public class GameActivity extends Activity {
             }
         });
 
+        final Button btnRester = (Button) findViewById(R.id.btnRester);
+        btnRester.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Jeu.ActionJoueur.FinirTour();
+            }
+        });
+
     }
     @Override
     public void onStart() {

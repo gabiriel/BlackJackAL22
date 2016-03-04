@@ -48,6 +48,10 @@ public class Action {
             Jeu.tresorerieJoueur -= Jeu.ObtenirMiseTotaleDuJoueur();
             Jeu.graph.AfficherTous();
             Jeu.PasserEnEtatJeuNormal();
+            if(Jeu.ExisteVainqueur()){
+                Jeu.graph.AfficherResultat();
+                Jeu.PasserEnEtatFinPartie();
+            }
         }
     }
 
@@ -64,8 +68,30 @@ public class Action {
         if(!Jeu.action)
             Log.d("Action.FinirTour", "impossible dans l'état actuel de la partie");
             //Toast.makeText(context, "impossible de finir le tour dans l'état actuel de la partie", 5).show();
-        else
-            Jeu.action=false;
+        else {
+            Jeu.action = false;
+            if(Jeu.mainBanquier.PossedeCarteInvisible())
+                Jeu.mainBanquier.RetournerCartes();
+            boolean distribBanque = true;
+            while(distribBanque) {
+                if (Jeu.mainBanquier.ObtenirValeurDesCartes() < Jeu.mains.get(0).ObtenirValeurDesCartes()) {
+                    if (Jeu.ObtenirValeurDesCartes(Jeu.mainBanquier) <= 21) {
+                        Jeu.DistribuerUneCarteAuCroupier(true);
+                    }
+                    else distribBanque = false;
+                }
+                else distribBanque = false;
+            }
+
+
+
+            Jeu.graph.AfficherCartesBanque();
+            Jeu.graph.AfficherLesPoints();
+        //    if(Jeu.ExisteVainqueur()){
+            Jeu.graph.AfficherResultat();
+            Jeu.PasserEnEtatFinPartie();
+
+        }
     }
 
     public void PiocherUneCarte()
@@ -80,6 +106,11 @@ public class Action {
                 Jeu.DistribuerUneCarteAuJoueur();
                 Jeu.graph.AfficherLesPoints();
                 Jeu.graph.AfficherCartesDuJoueur();
+                Jeu.action = true;
+                if(Jeu.ExisteVainqueur()){
+                    Jeu.graph.AfficherResultat();
+                    Jeu.PasserEnEtatFinPartie();
+                }
             }
             else Log.d("TirerCartes","Valeur des cartes > 21");
         }

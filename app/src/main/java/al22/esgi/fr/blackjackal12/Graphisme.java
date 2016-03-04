@@ -293,10 +293,44 @@ public class Graphisme
 
     public void AfficherResultat() {
         if(Jeu == null) throw new NullPointerException("Le jeu de l'instance graphismes est null");
+       /* if(!Jeu.ExisteVainqueur()){
+            Log.d("AfficherResultat", "Il n'y a pas de vainqueur, affichage resultat impossible");
+            return;
+        }*/
+        if(context == null) {
+            Log.d("AfficherMiseJoueur","Context est null");
+            return;
+        }
+        Activity a = ((Activity) context);
+        if(a == null) {
+            //Log.d("AfficherMiseJoueur","L'activity de l'instance de graphismes est nulle");
+            throw new NullPointerException("L'activity de l'instance de graphismes est nulle");
+            //return;
+        }
+        GameActivity ga = (GameActivity)a;
+        int resID = ga.getResources().getIdentifier("lblVainqueur", "id", ga.getPackageName());
+        TextView lblVainqueur = (TextView) ga.findViewById(resID);
+        if(Jeu.JoueurVainqueur()){
+            lblVainqueur.setText("VICTOIRE !");
+            Jeu.tresorerieJoueur = 600 + Jeu.plateau.mises;
+            resID = ga.getResources().getIdentifier("lblTresorerie", "id", ga.getPackageName());
+            TextView lblTresorerie = (TextView) ga.findViewById(resID);
+            lblTresorerie.setText("" + Jeu.tresorerieJoueur);
+        }
+        else {
+            lblVainqueur.setText("DEFAITE !");
+            Jeu.tresorerieJoueur = 600 - Jeu.plateau.mises;
+            resID = ga.getResources().getIdentifier("lblTresorerie", "id", ga.getPackageName());
+            TextView lblTresorerie = (TextView) ga.findViewById(resID);
+            lblTresorerie.setText("" + Jeu.tresorerieJoueur);
+        }
+
+
+        /*
         Jeu.DeterminerVainqueur();
         if(Jeu.Victoire == victoire.inconnu){
             Log.d("AfficherResultat","impossible car le vainqueur est inconnu");
-        }
+        }*/
     }
 
     public void CacherResultat()

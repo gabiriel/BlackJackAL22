@@ -31,4 +31,19 @@ public class Main {
         }
         return total;
     }
+
+    public boolean PossedeCarteInvisible()
+    {
+        for(Carte c : listeCarte){
+            if(!c.visible) return true;
+        }
+        return false;
+    }
+
+    public void RetournerCartes()
+    {
+        for(Carte c : listeCarte){
+            c.visible = true;
+        }
+    }
 }

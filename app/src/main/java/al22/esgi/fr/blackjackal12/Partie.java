@@ -159,6 +159,18 @@ public class Partie {
     }
     public void UpdateTresorerie(){}
 
+    public boolean ExisteVainqueur(){
+        if(mains.get(0).ObtenirValeurDesCartes() >= 21) return true;
+        if(mainBanquier.ObtenirValeurDesCartes() >= 21 ) return true;
+        return false;
+    }
+    public boolean JoueurVainqueur()
+    {
+        if(mains.get(0).ObtenirValeurDesCartes() == 21) return true;
+        if(mainBanquier.ObtenirValeurDesCartes() > 21 ) return true;
+        return false;
+    }
+
     public void DeterminerVainqueur() { // A DETERMINER !
         Victoire = victoire.inconnu;
     }
