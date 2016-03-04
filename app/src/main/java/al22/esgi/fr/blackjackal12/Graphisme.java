@@ -232,7 +232,8 @@ public class Graphisme
             // Obtention de l'id de la ressource "Mise du Jeton X"
             resID = ((Activity) context).getResources().getIdentifier(jetonID, "id", ((Activity) context).getPackageName());
             ImageView misejeton = (ImageView) ((Activity) context).findViewById(resID);
-            misejeton.setVisibility(View.VISIBLE); // On affiche la mise de ce jeton
+            if(Jeu.plateau.Jetons.contains(jeton)) misejeton.setVisibility(View.VISIBLE); // On affiche la mise de ce jeton
+            else misejeton.setVisibility(View.INVISIBLE); // On affiche plus la mise de ce jeton
 
             // Obtention de l'id de la ressource "Nombre de jetons du Jeton X"
             String nbjetonID = "nbjeton" + jeton;
@@ -240,9 +241,14 @@ public class Graphisme
             TextView nbjeton = (TextView) ga.findViewById(resID);
             nbjeton.setVisibility(View.VISIBLE); // On affiche le nb de ces jetons
             String nbjetonValue = nbjeton.getText().toString(); // On met à jour la valeur
+            if(Jeu.plateau.Jetons.contains(jeton)){
+                nbjeton.setVisibility(View.VISIBLE); // On affiche le nb de jeton
+                int nbJetons = Jeu.plateau.ObtenirNombreJeton(jeton);
+                nbjeton.setText("" + nbJetons); // On met à jour le nombre de jetons du même type
+            }
+            else nbjeton.setVisibility(View.INVISIBLE); // On affiche plus le nb de jeton
 
-            int nbJetons = Jeu.plateau.ObtenirNombreJeton(jeton);
-            nbjeton.setText("" + nbJetons); // On met à jour le nombre de jetons du même type
+
         }
 
         Jeu.plateau.CalculerMise();
