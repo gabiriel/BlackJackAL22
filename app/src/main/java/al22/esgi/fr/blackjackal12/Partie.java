@@ -32,12 +32,14 @@ public class Partie {
     public Partie(){
         graph = new Graphisme(this);
         ActionJoueur = new Action(this);
+        tresorerieJoueur=600;
     }
 
     public Partie(GameActivity activity) {
         graph = new Graphisme(this);
         Activity = activity;
         ActionJoueur = new Action(this);
+        tresorerieJoueur=600;
     }
 
     public void PasserEnEtatAttenteDeMise()
@@ -157,6 +159,12 @@ public class Partie {
 
     public void DeterminerVainqueur() { // A DETERMINER !
         Victoire = victoire.inconnu;
+    }
+
+    public void SauvegarderMise(){
+        for(Main m : mains){
+            m.mise=plateau.RetournerMise();
+        }
     }
 
 }

@@ -33,13 +33,16 @@ public class Action {
             Log.d("Action.ValiderLaMise","impossible dans l'état actuel de la partie");
         else if(Jeu.ObtenirMiseTotaleDuJoueur()<=0)
             Log.d("Action.ValiderLaMise","impossible, Il faut d'abord miser");
+        else if(Jeu.ObtenirMiseTotaleDuJoueur()>Jeu.tresorerieJoueur)
+            Log.d("Action.ValiderLaMise","impossible de miser autant, vous n'avez pas assez d'argent");
         else
         {
             Jeu.DistribuerUneCarteAuCroupier(true);
             Jeu.DistribuerUneCarteAuJoueur();
             Jeu.DistribuerUneCarteAuCroupier(false);
             Jeu.DistribuerUneCarteAuJoueur();
-            //Sauvegarde?
+            Jeu.SauvegarderMise();
+            Jeu.tresorerieJoueur-=Jeu.ObtenirMiseTotaleDuJoueur();
             Jeu.graph.AfficherTous();
             Jeu.PasserEnEtatJeuNormal();
         }
@@ -47,7 +50,11 @@ public class Action {
 
     public void FinirTour()
     {
-
+        if(!Jeu.action)
+            Log.d("Action.FinirTour", "impossible dans l'état actuel de la partie");
+            //Toast.makeText(context, "impossible de finir le tour dans l'état actuel de la partie", 5).show();
+        else
+            Jeu.action=false;
     }
 
     public void PiocherUneCarte()
