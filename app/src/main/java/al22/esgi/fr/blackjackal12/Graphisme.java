@@ -91,10 +91,12 @@ public class Graphisme
             AfficherUneCarteJoueur(i,c);
             ++i;
         }
-        if(Jeu.PossedeDesCartes()){
-            Log.d("CartesDuJoueur", " = " + Jeu.mains.get(0).listeCarte.size());
+        if(i < 6){ // Cache les cartes qu'il ne possède pas
+            for(;i < 6;++i)
+            {
+                CacherCarteJoueur(i);
+            }
         }
-
     }
 
     public void AfficherUneCarteBanque(int numCarte, Carte carte)
@@ -147,6 +149,25 @@ public class Graphisme
         cardImg.setVisibility(View.INVISIBLE);
     }
 
+    public void CacherCarteJoueur(int numCarte)
+    {
+        if(context == null) {
+            Log.d("CacherCarteBanque","Context est null");
+            return;
+        }
+        Activity a = ((Activity) context);
+        if(a == null) {
+            //Log.d("AfficherMiseJoueur","L'activity de l'instance de graphismes est nulle");
+            throw new NullPointerException("L'activity de l'instance de graphismes est nulle");
+            //return;
+        }
+        GameActivity ga = (GameActivity)a;
+        String cartejoueur = "cartejoueur" + numCarte;
+
+        int resID = ga.getResources().getIdentifier(cartejoueur,"id",ga.getPackageName());
+        ImageView cardImg = (ImageView) ga.findViewById(resID);// carte physique sélectionnée
+        cardImg.setVisibility(View.INVISIBLE);
+    }
     public void AfficherCartesBanque()
     {
         int i = 1;

@@ -99,7 +99,7 @@ public class GameActivity extends Activity {
         btnTirer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Jeu.ActionJoueur.DistribuerCartes();
+                Jeu.ActionJoueur.TirerCartes();
             }
         });
 

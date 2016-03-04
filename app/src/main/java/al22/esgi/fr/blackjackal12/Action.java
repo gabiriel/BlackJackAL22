@@ -73,11 +73,15 @@ public class Action {
 
     }
 
-    public void DistribuerCartes()
+    public void TirerCartes()
     {
         if(Jeu.EtatCourant != null && Jeu.EtatCourant instanceof EtatJeuNormal){
-            Jeu.DistribuerUneCarteAuJoueur();
-            Jeu.graph.AfficherLesPoints();
+            if(Jeu.ObtenirValeurDesCartes(Jeu.mains.get(0)) <= 21 ) {
+                Jeu.DistribuerUneCarteAuJoueur();
+                Jeu.graph.AfficherLesPoints();
+                Jeu.graph.AfficherCartesDuJoueur();
+            }
+            else Log.d("TirerCartes","Valeur des cartes > 21");
         }
         else Log.d("DistribuerCartes", "non autorisé dans cet état");
     }
