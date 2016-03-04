@@ -27,4 +27,33 @@ public class Action {
             Log.d("Action.AjouterJeton","impossible dans l'état actuel de la partie");
         }
     }
+
+    public void ValiderLaMise(){
+
+    }
+
+    public void FinirTour()
+    {
+
+    }
+
+    public void PiocherUneCarte()
+    {
+
+    }
+
+    public void DistribuerCartes()
+    {
+
+    }
+
+    public void Doubler()
+    {
+
+    }
+
+    public void Split()
+    {
+
+    }
 }
