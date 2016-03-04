@@ -158,4 +158,5 @@ public class Partie {
     public void DeterminerVainqueur() { // A DETERMINER !
         Victoire = victoire.inconnu;
     }
+
 }

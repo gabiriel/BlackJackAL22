@@ -90,28 +90,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Mise totale :"
+        android:text="Mise totale : $"
         android:id="@+id/lblTexteMise"
         android:textColor="#ffc000"
         android:textStyle="bold"
         android:textSize="30dp"
         android:textIsSelectable="false"
-        android:layout_above="@+id/imageView"
-        android:layout_toStartOf="@+id/lblTresorerie"
-        android:layout_alignEnd="@+id/lblTresorerie" />
+        android:layout_below="@+id/cartejoueur1"
+        android:layout_alignEnd="@+id/nbjeton100" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="$ 600"
+        android:text="0"
         android:id="@+id/lblMise"
         android:textColor="#ffc000"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:textIsSelectable="false"
-        android:layout_above="@+id/imageView"
-        android:layout_toEndOf="@+id/lblTresorerie" />
+        android:layout_alignBaseline="@+id/lblTexteMise"
+        android:layout_alignBottom="@+id/lblTexteMise"
+        android:layout_alignEnd="@+id/jeton500" />
 
     <ImageView
         android:layout_width="80dip"
@@ -203,16 +203,16 @@
         android:id="@+id/jeton1"
         android:background="@mipmap/j1"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:nestedScrollingEnabled="false" />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton5"
         android:background="@mipmap/j5"
-        android:layout_marginStart="0dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/lblTexteMise" />
+        android:layout_alignTop="@+id/jeton1"
+        android:layout_alignStart="@+id/misejeton5" />
 
     <ImageView
         android:layout_width="80dip"
@@ -228,27 +228,24 @@
         android:layout_height="80dip"
         android:id="@+id/jeton100"
         android:background="@mipmap/j100"
-        android:layout_marginStart="0dp"
-        android:layout_alignTop="@+id/jeton25"
-        android:layout_toEndOf="@+id/cartejoueur3" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/cartejoueur5" />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton500"
         android:background="@mipmap/j500"
-        android:layout_marginStart="0dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/lblMise" />
+        android:layout_toEndOf="@+id/lblTexteMise" />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton1k"
         android:background="@mipmap/j1k"
-        android:layout_marginStart="0dp"
-        android:layout_alignTop="@+id/jeton500"
-        android:layout_alignEnd="@+id/btnRester" />
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/lblMise" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -292,5 +289,144 @@
         android:background="@mipmap/banque"
         android:layout_below="@+id/cartebanque1"
         android:layout_alignStart="@+id/cartebanque1" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton1"
+        android:background="@mipmap/j1"
+        android:layout_above="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton5"
+        android:background="@mipmap/j5"
+        android:layout_alignTop="@+id/misejeton1"
+        android:layout_toEndOf="@+id/imageButton2"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton25"
+        android:background="@mipmap/j25"
+        android:layout_alignTop="@+id/misejeton5"
+        android:layout_alignStart="@+id/jeton25"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton100"
+        android:background="@mipmap/j100"
+        android:layout_alignTop="@+id/misejeton25"
+        android:layout_alignStart="@+id/cartejoueur5"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton500"
+        android:background="@mipmap/j500"
+        android:layout_alignTop="@+id/misejeton100"
+        android:layout_toEndOf="@+id/lblTexteMise"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:id="@+id/misejeton1k"
+        android:background="@mipmap/j1k"
+        android:layout_alignTop="@+id/misejeton500"
+        android:layout_alignStart="@+id/lblValeurJoueur"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton1"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:visibility="invisible"
+        android:layout_above="@+id/imageView4"
+        android:layout_toStartOf="@+id/misejeton5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton5"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/misejeton5"
+        android:layout_toStartOf="@+id/cartejoueur4"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton25"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/misejeton25"
+        android:layout_toEndOf="@+id/cartejoueur2"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton100"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/misejeton100"
+        android:layout_alignEnd="@+id/lblTresorerie"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton500"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/misejeton500"
+        android:layout_toStartOf="@+id/misejeton1k"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/nbjeton1k"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ffc000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/misejeton1k"
+        android:layout_alignStart="@+id/btnTirer"
+        android:layout_marginStart="18dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>
