@@ -2,6 +2,7 @@ package al22.esgi.fr.blackjackal12;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -120,7 +121,7 @@ public class GameActivity extends Activity {
         lblMise.setText("" + new_valeurMise);
     }
 
-    public void RAZMise(){
+    public void RAZMise() {
         ImageView misejeton1 = (ImageView) findViewById(R.id.misejeton1);
         misejeton1.setVisibility(View.INVISIBLE);
         ImageView misejeton5 = (ImageView) findViewById(R.id.misejeton5);
@@ -155,6 +156,12 @@ public class GameActivity extends Activity {
 
         TextView lblMise = (TextView) findViewById(R.id.lblMise);
         lblMise.setText("0");
+    }
+
+    public void displayTuto(View view)
+    {
+        Intent intent = new Intent(this, TutoActivity.class);
+        startActivity(intent);
     }
 
 }
