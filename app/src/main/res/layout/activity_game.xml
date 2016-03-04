@@ -322,7 +322,7 @@
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
-        android:id="@+id/misejeton1k"
+        android:id="@+id/misejeton1000"
         android:background="@mipmap/j1k"
         android:layout_alignTop="@+id/misejeton500"
         android:layout_alignStart="@+id/lblValeurJoueur"
@@ -395,7 +395,7 @@
         android:textColor="#ffc000"
         android:singleLine="false"
         android:layout_alignBottom="@+id/misejeton500"
-        android:layout_toStartOf="@+id/misejeton1k"
+        android:layout_toStartOf="@+id/misejeton1000"
         android:visibility="invisible" />
 
     <TextView
@@ -403,12 +403,12 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="0"
-        android:id="@+id/nbjeton1k"
+        android:id="@+id/nbjeton1000"
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="#ffc000"
         android:singleLine="false"
-        android:layout_alignBottom="@+id/misejeton1k"
+        android:layout_alignBottom="@+id/misejeton1000"
         android:layout_alignStart="@+id/btnTirer"
         android:layout_marginStart="18dp"
         android:visibility="invisible" />
@@ -421,5 +421,37 @@
         android:layout_above="@+id/imageView"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Distribuer les cartes ?"
+        android:id="@+id/lblValiderMise"
+        android:layout_alignBottom="@+id/cartebanque1"
+        android:layout_alignEnd="@+id/nbjeton500"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Oui ?"
+        android:id="@+id/btnValiderMise"
+        android:textSize="40dp"
+        android:layout_above="@+id/misejeton5"
+        android:layout_alignEnd="@+id/nbjeton25"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Non ?"
+        android:id="@+id/btnAnnulerMise"
+        android:textSize="40dp"
+        android:layout_above="@+id/misejeton25"
+        android:layout_toStartOf="@+id/lblMise"
+        android:visibility="invisible" />
 
 </RelativeLayout>

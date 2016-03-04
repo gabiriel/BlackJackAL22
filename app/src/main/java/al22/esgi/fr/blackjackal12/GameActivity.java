@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 
 public class GameActivity extends Activity {
 
-    Partie Jeu = new Partie(this);
+    Partie Jeu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Intent intent = getIntent();
@@ -23,61 +24,84 @@ public class GameActivity extends Activity {
         */
 
         //findViewById(R.id.imageView).setOnTouchListener(new MyTouchListener());
-        Jeu.InitialiserPartie();
 
         /* AFFICHER LES JETONS ******************************************/
         ImageView jeton1 = (ImageView) findViewById(R.id.jeton1);
         jeton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("1");
+                Jeu.ActionJoueur.AjouterJeton(1);
+
             }
         });
         ImageView jeton5 = (ImageView) findViewById(R.id.jeton5);
         jeton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("5");
+                Jeu.ActionJoueur.AjouterJeton(5);
+
             }
         });
         ImageView jeton25 = (ImageView) findViewById(R.id.jeton25);
         jeton25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("25");
+                Jeu.ActionJoueur.AjouterJeton(25);
             }
         });
         ImageView jeton100 = (ImageView) findViewById(R.id.jeton100);
         jeton100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("100");
+                Jeu.ActionJoueur.AjouterJeton(100);
             }
         });
         ImageView jeton500 = (ImageView) findViewById(R.id.jeton500);
         jeton500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("500");
+                Jeu.ActionJoueur.AjouterJeton(500);
             }
         });
         ImageView jeton1k = (ImageView) findViewById(R.id.jeton1k);
         jeton1k.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AjouterJetonMise("1k");
+                Jeu.ActionJoueur.AjouterJeton(1000);
             }
         });
         ImageView btnreset = (ImageView) findViewById(R.id.btnreset);
         btnreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RAZMise();
+            //    RAZMise();
+                Jeu.ActionJoueur.EffacerMise();
+            }
+        });
+        TextView btnValiderMise = (TextView) findViewById(R.id.btnValiderMise);
+        btnValiderMise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //   Jeu.ActionJoueur.EffacerMise();
+
+            }
+        });
+        TextView btnAnnulerMise = (TextView) findViewById(R.id.btnAnnulerMise);
+        btnAnnulerMise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Jeu.ActionJoueur.EffacerMise();
             }
         });
 
-
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Jeu = new Partie(this);
+        Jeu.InitialiserPartie();
+    }
+
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -111,7 +135,7 @@ public class GameActivity extends Activity {
         int new_nbjeton = Integer.parseInt(nbjetonValue) + 1;
         nbjeton.setText("" + new_nbjeton);
 
-        if(idJeton.equals("1k")){
+       if(idJeton.equals("1k")){
             idJeton = "1000";
         }
 
@@ -132,7 +156,7 @@ public class GameActivity extends Activity {
         misejeton100.setVisibility(View.INVISIBLE);
         ImageView misejeton500 = (ImageView) findViewById(R.id.misejeton500);
         misejeton500.setVisibility(View.INVISIBLE);
-        ImageView misejeton1k = (ImageView) findViewById(R.id.misejeton1k);
+        ImageView misejeton1k = (ImageView) findViewById(R.id.misejeton1000);
         misejeton1k.setVisibility(View.INVISIBLE);
 
         TextView nbjeton1 = (TextView) findViewById(R.id.nbjeton1);
@@ -150,7 +174,7 @@ public class GameActivity extends Activity {
         TextView nbjeton500 = (TextView) findViewById(R.id.nbjeton500);
         nbjeton500.setText("0");
         nbjeton500.setVisibility(View.INVISIBLE);
-        TextView nbjeton1k = (TextView) findViewById(R.id.nbjeton1k);
+        TextView nbjeton1k = (TextView) findViewById(R.id.nbjeton1000);
         nbjeton1k.setText("0");
         nbjeton1k.setVisibility(View.INVISIBLE);
 

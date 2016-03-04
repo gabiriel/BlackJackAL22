@@ -1,5 +1,6 @@
 package al22.esgi.fr.blackjackal12;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Partie {
     public EtatPartie EtatCourant;
     public victoire Victoire = victoire.inconnu;
     public Action ActionJoueur;
-    public GameActivity Activity;
+    public Context context;
 
     public Partie(){
         graph = new Graphisme(this);
@@ -35,9 +36,10 @@ public class Partie {
         tresorerieJoueur=600;
     }
 
-    public Partie(GameActivity activity) {
+    public Partie(Context context) {
+        this.context = context;
+        if(context == null) throw new NullPointerException("Context is null in Partie");
         graph = new Graphisme(this);
-        Activity = activity;
         ActionJoueur = new Action(this);
         tresorerieJoueur=600;
     }
