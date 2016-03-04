@@ -245,7 +245,8 @@
         android:id="@+id/jeton1k"
         android:background="@mipmap/j1k"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/lblMise" />
+        android:layout_alignStart="@+id/lblMise"
+        android:layout_alignParentEnd="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -428,5 +429,13 @@
         android:layout_alignStart="@+id/btnTirer"
         android:layout_marginStart="18dp"
         android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:id="@+id/btnreset"
+        android:background="@mipmap/reset"
+        android:layout_above="@+id/imageView"
+        android:layout_alignEnd="@+id/jeton1k" />
 
 </RelativeLayout>

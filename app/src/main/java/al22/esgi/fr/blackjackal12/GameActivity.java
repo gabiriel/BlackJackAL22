@@ -24,48 +24,58 @@ public class GameActivity extends Activity {
         //findViewById(R.id.imageView).setOnTouchListener(new MyTouchListener());
         Jeu.InitialiserPartie();
 
+        /* AFFICHER LES JETONS ******************************************/
         ImageView jeton1 = (ImageView) findViewById(R.id.jeton1);
         jeton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("1");
+                AjouterJetonMise("1");
             }
         });
         ImageView jeton5 = (ImageView) findViewById(R.id.jeton5);
         jeton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("5");
+                AjouterJetonMise("5");
             }
         });
         ImageView jeton25 = (ImageView) findViewById(R.id.jeton25);
         jeton25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("25");
+                AjouterJetonMise("25");
             }
         });
         ImageView jeton100 = (ImageView) findViewById(R.id.jeton100);
         jeton100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("100");
+                AjouterJetonMise("100");
             }
         });
         ImageView jeton500 = (ImageView) findViewById(R.id.jeton500);
         jeton500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("500");
+                AjouterJetonMise("500");
             }
         });
         ImageView jeton1k = (ImageView) findViewById(R.id.jeton1k);
         jeton1k.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AfficherJetonMise("1k");
+                AjouterJetonMise("1k");
             }
         });
+        ImageView btnreset = (ImageView) findViewById(R.id.btnreset);
+        btnreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RAZMise();
+            }
+        });
+
+
     }
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -82,7 +92,7 @@ public class GameActivity extends Activity {
     }
 
 
-    public void AfficherJetonMise(String idJeton){
+    public void AjouterJetonMise(String idJeton){
         String jetonID = "misejeton" + idJeton;
         int resID = getResources().getIdentifier(jetonID, "id", getPackageName());
 
@@ -100,10 +110,51 @@ public class GameActivity extends Activity {
         int new_nbjeton = Integer.parseInt(nbjetonValue) + 1;
         nbjeton.setText("" + new_nbjeton);
 
+        if(idJeton.equals("1k")){
+            idJeton = "1000";
+        }
+
         TextView lblMise = (TextView) findViewById(R.id.lblMise);
         String valeurMise = lblMise.getText().toString();
         int new_valeurMise = Integer.parseInt(valeurMise) + Integer.parseInt(idJeton);
         lblMise.setText("" + new_valeurMise);
+    }
+
+    public void RAZMise(){
+        ImageView misejeton1 = (ImageView) findViewById(R.id.misejeton1);
+        misejeton1.setVisibility(View.INVISIBLE);
+        ImageView misejeton5 = (ImageView) findViewById(R.id.misejeton5);
+        misejeton5.setVisibility(View.INVISIBLE);
+        ImageView misejeton25 = (ImageView) findViewById(R.id.misejeton25);
+        misejeton25.setVisibility(View.INVISIBLE);
+        ImageView misejeton100 = (ImageView) findViewById(R.id.misejeton100);
+        misejeton100.setVisibility(View.INVISIBLE);
+        ImageView misejeton500 = (ImageView) findViewById(R.id.misejeton500);
+        misejeton500.setVisibility(View.INVISIBLE);
+        ImageView misejeton1k = (ImageView) findViewById(R.id.misejeton1k);
+        misejeton1k.setVisibility(View.INVISIBLE);
+
+        TextView nbjeton1 = (TextView) findViewById(R.id.nbjeton1);
+        nbjeton1.setText("0");
+        nbjeton1.setVisibility(View.INVISIBLE);
+        TextView nbjeton5 = (TextView) findViewById(R.id.nbjeton5);
+        nbjeton5.setText("0");
+        nbjeton5.setVisibility(View.INVISIBLE);
+        TextView nbjeton25 = (TextView) findViewById(R.id.nbjeton25);
+        nbjeton25.setText("0");
+        nbjeton25.setVisibility(View.INVISIBLE);
+        TextView nbjeton100 = (TextView) findViewById(R.id.nbjeton100);
+        nbjeton100.setText("0");
+        nbjeton100.setVisibility(View.INVISIBLE);
+        TextView nbjeton500 = (TextView) findViewById(R.id.nbjeton500);
+        nbjeton500.setText("0");
+        nbjeton500.setVisibility(View.INVISIBLE);
+        TextView nbjeton1k = (TextView) findViewById(R.id.nbjeton1k);
+        nbjeton1k.setText("0");
+        nbjeton1k.setVisibility(View.INVISIBLE);
+
+        TextView lblMise = (TextView) findViewById(R.id.lblMise);
+        lblMise.setText("0");
     }
 
 }
