@@ -56,7 +56,9 @@ public class Carte implements Comparable<Carte>{
         }
         return 1;
     }
-
+    public String toString(){
+        return lettre.toString() + " - " + couleur.toString();
+    }
 
     public boolean isValid(){
         if(cartes.get(this.lettre) == this.valeur){

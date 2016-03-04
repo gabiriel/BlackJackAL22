@@ -109,6 +109,11 @@ public class GameActivity extends Activity {
         super.onStart();
         Jeu = new Partie(this);
         Jeu.InitialiserPartie();
+       /* Jeu.graph.AfficherUneCarteJoueur(1, new Carte(lettres.NEUF,couleurs.TREFLE));
+        Jeu.graph.AfficherUneCarteJoueur(2,new Carte(lettres.NEUF,couleurs.TREFLE));
+        Jeu.graph.AfficherUneCarteJoueur(3,new Carte(lettres.NEUF,couleurs.TREFLE));
+        Jeu.graph.AfficherUneCarteJoueur(4,new Carte(lettres.NEUF,couleurs.TREFLE));*/
+
     }
 
     private final class MyTouchListener implements View.OnTouchListener {

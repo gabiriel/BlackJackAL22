@@ -30,8 +30,8 @@ public class Graphisme
         String NomFichier = "";
         switch(c.couleur)
         {
-            case TREFLE: NomFichier += "c"; break;
-            case CARREAU: NomFichier += "d"; break;
+            case TREFLE: NomFichier += "t"; break;
+            case CARREAU: NomFichier += "c"; break;
             case COEUR: NomFichier += "h"; break;
             case PIQUE: NomFichier += "p"; break;
         }
@@ -89,6 +89,7 @@ public class Graphisme
         for(Carte c : Jeu.mains.get(0).listeCarte)
         {
             AfficherUneCarteJoueur(i,c);
+            Log.d("AfficherCartesDuJoueur"," carte " + i + " = " + c);
             ++i;
         }
         if(i < 6){ // Cache les cartes qu'il ne possède pas
