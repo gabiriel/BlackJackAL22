@@ -80,25 +80,114 @@ public class Graphisme
 
         resID = ga.getResources().getIdentifier(NomFichierCarte,"mipmap",ga.getPackageName());
         cardImg.setBackgroundResource(resID);
+        cardImg.setVisibility(View.VISIBLE);
     }
 
     public void AfficherCartesDuJoueur()
     {
+        int i = 1;
+        for(Carte c : Jeu.mains.get(0).listeCarte)
+        {
+            AfficherUneCarteJoueur(i,c);
+            ++i;
+        }
+        if(Jeu.PossedeDesCartes()){
+            Log.d("CartesDuJoueur", " = " + Jeu.mains.get(0).listeCarte.size());
+        }
 
     }
 
     public void AfficherUneCarteBanque(int numCarte, Carte carte)
     {
+        int resID;
+        if(context == null) {
+            Log.d("AfficherUneCarteBanque","Context est null");
+            return;
+        }
+        Activity a = ((Activity) context);
+        if(a == null) {
+            //Log.d("AfficherMiseJoueur","L'activity de l'instance de graphismes est nulle");
+            throw new NullPointerException("L'activity de l'instance de graphismes est nulle");
+            //return;
+        }
+        GameActivity ga = (GameActivity)a;
 
+        String NomFichierCarte = ObtenirNomPngCarte(carte);
+        Log.d("AfficherUneCarteBanque", "NomFichier = " + NomFichierCarte );
+        String cartebanque = "cartebanque" + numCarte;
+
+        resID = ga.getResources().getIdentifier(cartebanque, "id", ga.getPackageName());
+        ImageView cardImg = (ImageView) ga.findViewById(resID);// carte physique sélectionnée
+        if(carte.visible)
+            resID = ga.getResources().getIdentifier(NomFichierCarte,"mipmap",ga.getPackageName());
+        else
+            resID = ga.getResources().getIdentifier("back", "mipmap", ga.getPackageName());
+        cardImg.setBackgroundResource(resID);
+        cardImg.setVisibility(View.VISIBLE);
+
+    }
+
+    public void CacherCarteBanque(int numCarte)
+    {
+        if(context == null) {
+            Log.d("CacherCarteBanque","Context est null");
+            return;
+        }
+        Activity a = ((Activity) context);
+        if(a == null) {
+            //Log.d("AfficherMiseJoueur","L'activity de l'instance de graphismes est nulle");
+            throw new NullPointerException("L'activity de l'instance de graphismes est nulle");
+            //return;
+        }
+        GameActivity ga = (GameActivity)a;
+        String cartebanque = "cartebanque" + numCarte;
+
+        int resID = ga.getResources().getIdentifier(cartebanque,"id",ga.getPackageName());
+        ImageView cardImg = (ImageView) ga.findViewById(resID);// carte physique sélectionnée
+        cardImg.setVisibility(View.INVISIBLE);
     }
 
     public void AfficherCartesBanque()
     {
-
+        int i = 1;
+        for(Carte c : Jeu.mainBanquier.listeCarte)
+        {
+            AfficherUneCarteBanque(i,c);
+            ++i;
+        }
+        if(i < 6){ // Cache les cartes qu'il ne possède pas
+            for(;i < 6;++i)
+            {
+                CacherCarteBanque(i);
+            }
+        }
     }
 
     public void AfficherLesPoints()
     {
+        int resID;
+        if(context == null) {
+            Log.d("AfficherMiseJoueur","Context est null");
+            return;
+        }
+        Activity a = ((Activity) context);
+        if(a == null) {
+            //Log.d("AfficherMiseJoueur","L'activity de l'instance de graphismes est nulle");
+            throw new NullPointerException("L'activity de l'instance de graphismes est nulle");
+            //return;
+        }
+        GameActivity ga = (GameActivity)a;
+
+        int valeurJoueur = Jeu.mains.get(0).ObtenirValeurDesCartes();
+        int valeurBanquier = Jeu.mainBanquier.ObtenirValeurDesCartes();
+
+        resID = ga.getResources().getIdentifier("lblValeurJoueur", "id", ga.getPackageName());
+        TextView lblValeurJoueur = (TextView) ga.findViewById(resID);
+        lblValeurJoueur.setText("" + valeurJoueur);
+
+        resID = ga.getResources().getIdentifier("lblValeurBanque", "id", ga.getPackageName());
+        TextView lblValeurBanque = (TextView) ga.findViewById(resID);
+        lblValeurBanque.setText("" + valeurBanquier);
 
     }
     public void AfficherMiseJoueur(){

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -91,6 +92,14 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Jeu.ActionJoueur.EffacerMise();
+            }
+        });
+
+        final Button btnTirer = (Button) findViewById(R.id.btnTirer);
+        btnTirer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Jeu.ActionJoueur.DistribuerCartes();
             }
         });
 

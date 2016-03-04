@@ -39,6 +39,7 @@ public class Action {
         else if (Jeu.plateau.mises > Jeu.tresorerieJoueur)
             Log.d("Action.ValiderLaMise", "impossible de miser autant, vous n'avez pas assez d'argent");
         else {
+            Log.d("ValiderLaMise", "Distribution des cartes ...");
             Jeu.DistribuerUneCarteAuCroupier(true);
             Jeu.DistribuerUneCarteAuJoueur();
             Jeu.DistribuerUneCarteAuCroupier(false);
@@ -74,7 +75,11 @@ public class Action {
 
     public void DistribuerCartes()
     {
-
+        if(Jeu.EtatCourant != null && Jeu.EtatCourant instanceof EtatJeuNormal){
+            Jeu.DistribuerUneCarteAuJoueur();
+            Jeu.graph.AfficherLesPoints();
+        }
+        else Log.d("DistribuerCartes", "non autorisé dans cet état");
     }
 
     public void Doubler()

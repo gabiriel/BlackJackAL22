@@ -13,6 +13,7 @@ public class EtatJeuNormal extends EtatPartie {
         Afficher();
         p.action = false;
         p.graph.AfficherMiseJoueur();
+        p.graph.AfficherLesPoints();
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Main {
             if(c.lettre == lettres.A){
                 compteurAs++;
             }
-            else{
+            else if(c.visible){
                 total += c.valeur;
             }
         }

@@ -151,7 +151,7 @@ public class Partie {
         return c;
     }
     public Carte DistribuerUneCarteAuCroupier(boolean visible){
-        Main m = mains.get(mainActuelle);
+        Main m = mainBanquier;
         Carte c = ObtenirCarteDeLaPioche();
         c.visible = visible;
         m.listeCarte.add(c);
