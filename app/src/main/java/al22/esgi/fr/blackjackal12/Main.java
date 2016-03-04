@@ -1,12 +1,13 @@
 package al22.esgi.fr.blackjackal12;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Rawinderjeet on 03/03/2016.
  */
 public class Main {
-    public List<Carte> listeCarte;
+    public List<Carte> listeCarte = new ArrayList<Carte>();
     public int mise;
 
     public int ObtenirValeurDesCartes(){

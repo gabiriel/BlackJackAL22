@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Log.v("MainActivity", "onCreate - Initialisation des tests");
 
-        new Test().noukatester();
+        new Test().cakatesterduw();
     }
     public void displayTuto(View view)
     {
