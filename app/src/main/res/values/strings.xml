@@ -3,4 +3,19 @@
     <string name="button_play">Jouer</string>
     <string name="button_tuto">Tutoriel</string>
     <string name="title_activity_display_message">Jeu</string>
+    <string name="tuto_full">La partie oppose tous les joueurs contre la banque. Le but est de battre le croupier sans dépasser 21. Dès qu \'un joueur fait plus que 21, on dit qu \'il « saute » ou qu \'il « crève » et il perd sa mise initiale. La valeur des cartes est établie comme suit :
+
+    de 2 à 9 → valeur nominale de la carte
+    chaque figure + le 10 surnommées "bûche" → 10 points
+    l \'As → 1 ou 11 (au choix)
+
+Un Blackjack est composé d \'un As et d \'une « buche » (carte ayant pour valeur 10, donc 10, J, Q ou K). Cependant, si le joueur atteint le point 21 en 3 cartes ou plus on compte le point 21 et non pas Blackjack; de même lorsque le joueur sépare deux as et qu \'il reçoit une buche pour l \'un d \'eux.
+
+Au début de la partie le croupier distribue une carte face visible à chaque joueur et tire une carte face visible également pour lui. Il tire ensuite pour chacun une seconde carte face visible et tire une seconde carte face cachée pour lui au Blackjack américain. Au blackjack européen, le croupier tire sa seconde carte après le tour de jeu des joueurs.
+
+Puis il demande au premier joueur de la table (joueur situé à sa gauche) l \'option qu \'il désire choisir. Si le joueur veut une carte, il doit l \'annoncer en disant « Carte ! ». Le joueur peut demander autant de cartes qu \'il le souhaite pour approcher la valeur sans la dépasser. Si après le tirage d \'une carte, il a dépassé 21, il perd sa mise et le croupier passe au joueur suivant. S \'il décide de s \'arrêter, en disant « Je reste », le croupier passe également au joueur suivant.
+
+Le croupier répète cette opération jusqu \'à ce que tous les joueurs soient servis.
+
+Ensuite, il joue pour lui selon une règle simple et codifiée « la banque tire à 16, reste à 17 ». Ainsi, le croupier tire des cartes jusqu \'à atteindre un nombre compris entre 17 et 21 que l \'on appelle un point. S \'il fait plus de 21, tous les joueurs restants gagnent mais s \'il fait son point, seuls gagnent ceux ayant un point supérieur au sien (sans avoir sauté). Dans cette situation, le joueur remporte l \'équivalent de sa mise. En cas d \'égalité le joueur garde sa mise mais n \'empoche rien en plus. À noter que le blackjack (une bûche et un as en deux cartes) est plus fort que 21 fait en ayant tiré plus de deux cartes. Si un joueur fait blackjack et que le banquier fait 21 en 3 cartes ou plus, le joueur fait blackjack et remporte le double de sa mise. Le banquier lui gagne contre tous les joueurs ayant 20 ou moins. Réciproquement si la banque a un as et une figure, elle gagne contre tout joueur ayant 21 en ayant tiré plus de deux cartes. Dans ce cas, si un joueur fait également blackjack, il peut récupérer sa mise mais n \'est pas payé, le jeu étant à égalité.</string>
 </resources>

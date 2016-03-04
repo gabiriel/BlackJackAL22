@@ -9,8 +9,7 @@ import android.os.Bundle;
 public class TutoActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
-        //Intent intent = getIntent();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_tuto);
     }
 }
