@@ -192,41 +192,44 @@
         android:id="@+id/jeton5"
         android:background="@mipmap/j5"
         android:layout_alignTop="@+id/jeton1"
-        android:layout_alignStart="@+id/misejeton5" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="60dp"/>
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton25"
         android:background="@mipmap/j25"
-        android:layout_marginStart="0dp"
+        android:layout_alignTop="@+id/jeton1"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/cartejoueur1" />
+        android:layout_marginLeft="120dp" />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton100"
         android:background="@mipmap/j100"
+        android:layout_alignTop="@+id/jeton1"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/cartejoueur5" />
+        android:layout_marginLeft="180dp"  />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton500"
         android:background="@mipmap/j500"
+        android:layout_alignTop="@+id/jeton1"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/lblTexteMise" />
+        android:layout_marginLeft="240dp"  />
 
     <ImageView
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:id="@+id/jeton1k"
         android:background="@mipmap/j1k"
+        android:layout_alignTop="@+id/jeton1"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/lblMise"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignParentRight="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -416,6 +419,7 @@
         android:id="@+id/btnreset"
         android:background="@mipmap/reset"
         android:layout_above="@+id/imageView"
-        android:layout_alignEnd="@+id/jeton1k" />
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp" />
 
 </RelativeLayout>
