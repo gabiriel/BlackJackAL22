@@ -29,7 +29,20 @@ public class Action {
     }
 
     public void ValiderLaMise(){
-
+        if (Jeu.PossedeDesCartes())
+            Log.d("Action.ValiderLaMise","impossible dans l'état actuel de la partie");
+        else if(Jeu.ObtenirMiseTotaleDuJoueur()<=0)
+            Log.d("Action.ValiderLaMise","impossible, Il faut d'abord miser");
+        else
+        {
+            Jeu.DistribuerUneCarteAuCroupier(true);
+            Jeu.DistribuerUneCarteAuJoueur();
+            Jeu.DistribuerUneCarteAuCroupier(false);
+            Jeu.DistribuerUneCarteAuJoueur();
+            //Sauvegarde?
+            Jeu.graph.AfficherTous();
+            Jeu.PasserEnEtatJeuNormal();
+        }
     }
 
     public void FinirTour()
