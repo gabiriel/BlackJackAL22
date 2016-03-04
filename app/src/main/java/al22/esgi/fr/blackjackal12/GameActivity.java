@@ -82,7 +82,7 @@ public class GameActivity extends Activity {
         btnValiderMise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //   Jeu.ActionJoueur.EffacerMise();
+                Jeu.ActionJoueur.ValiderLaMise();
 
             }
         });

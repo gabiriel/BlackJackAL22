@@ -33,9 +33,10 @@ public class Action {
     public void ValiderLaMise() {
         if (Jeu.PossedeDesCartes())
             Log.d("Action.ValiderLaMise", "impossible dans l'état actuel de la partie");
-        else if (Jeu.ObtenirMiseTotaleDuJoueur() <= 0)
+        //else if (Jeu.ObtenirMiseTotaleDuJoueur() <= 0)
+        else if (Jeu.plateau.mises <= 0)
             Log.d("Action.ValiderLaMise", "impossible, Il faut d'abord miser");
-        else if (Jeu.ObtenirMiseTotaleDuJoueur() > Jeu.tresorerieJoueur)
+        else if (Jeu.plateau.mises > Jeu.tresorerieJoueur)
             Log.d("Action.ValiderLaMise", "impossible de miser autant, vous n'avez pas assez d'argent");
         else {
             Jeu.DistribuerUneCarteAuCroupier(true);

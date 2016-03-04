@@ -146,7 +146,11 @@ public class Graphisme
         lblMise.setText("" +  Jeu.plateau.mises);
 
         boolean afficherBoutons;
-        if(Jeu.plateau.mises != 0) afficherBoutons = true;
+
+        if(Jeu.EtatCourant != null && Jeu.EtatCourant instanceof EtatAttenteDeMise) {
+            if(Jeu.plateau.mises > 0) afficherBoutons = true;
+            else afficherBoutons = false;
+        }
         else afficherBoutons = false;
 
         resID = ga.getResources().getIdentifier("lblValiderMise", "id", ga.getPackageName());
@@ -163,6 +167,11 @@ public class Graphisme
         TextView btnAnnulerMise = (TextView) ga.findViewById(resID);
         if(afficherBoutons) btnAnnulerMise.setVisibility(View.VISIBLE);
         else btnAnnulerMise.setVisibility(View.INVISIBLE);
+
+        resID = ga.getResources().getIdentifier("btnreset", "id", ga.getPackageName());
+        ImageView btnReset = (ImageView) ga.findViewById(resID);
+        if(afficherBoutons) btnReset.setVisibility(View.VISIBLE);
+        else  btnReset.setVisibility(View.INVISIBLE);
     }
 
     public void AfficherResultat() {
